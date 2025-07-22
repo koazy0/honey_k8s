@@ -39,6 +39,18 @@ func (s *sMigrations) Migrate(ctx context.Context) {
 	// 自动迁移
 	err = db.AutoMigrate(
 		&model.UserModel{}, // 添加你所有要迁移的表结构
+		//&model.TestA{},     // 添加你所有要迁移的表结构
+		&model.HoneyIpModel{},
+		&model.HoneyPortModel{},
+		&model.HostModel{},
+		&model.HostTemplateModel{},
+		&model.ImageModel{},
+		&model.LogModel{},
+		&model.MatrixTemplateModel{},
+		&model.NetModel{},
+		&model.NodeModel{},
+		&model.NodeNetworkModel{},
+		&model.ServiceModel{},
 	)
 	if err != nil {
 		logger.Fatal(err.Error())

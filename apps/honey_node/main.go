@@ -16,15 +16,11 @@ import (
 
 func main() {
 	var migrateFlag bool
-	var singleFlag bool
-
 	ctx := gctx.GetInitCtx()
 	// 定义命令行参数
 	// 这里后面放在一个专门的包里面
 	flag.BoolVar(&migrateFlag, "migrate", false, "执行数据库迁移")
 	flag.BoolVar(&migrateFlag, "m", false, "执行数据库迁移（简写）")
-	flag.BoolVar(&singleFlag, "s", false, "执行数据库迁移（简写）")
-	flag.BoolVar(&singleFlag, "single", false, "执行数据库迁移（简写）")
 	flag.Parse()
 
 	if migrateFlag {

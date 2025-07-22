@@ -8,15 +8,15 @@ import (
 
 type NodeModel struct {
 	Model
-	Title        string         `gorm:"size:32" json:"title"` //标题
-	Uid          string         `gorm:"size:64" json:"uid"`   //uid
-	IP           string         `gorm:"size:32" json:"ip"`    //IP地址
-	Mac          string         `gorm:"size:64" json:"mac"`
-	Status       int8           `json:"status"`
-	NetCount     int            `json:"net_count"`
-	HoneyIPCount int            `json:"honey_ip_count"`
-	Resource     NodeResource   `gorm:"serializer:json" json:"resource"` //列名为Resource，序列化成json进行
-	SystemInfo   NodeSystemInfo `gorm:"serializer:json" json:"system_info"`
+	Title        string         `gorm:"column:title;size:32" json:"title"` //标题
+	Uid          string         `gorm:"column:uid;size:64" json:"uid"`     //uid
+	IP           string         `gorm:"column:ip;size:32" json:"ip"`       //IP地址
+	Mac          string         `gorm:"column:mac;size:64" json:"mac"`
+	Status       int8           `gorm:"column:status" json:"status"`
+	NetCount     int            `gorm:"column:net_count" json:"net_count"`
+	HoneyIPCount int            `gorm:"column:honey_ip_count" json:"honey_ip_count"`
+	Resource     NodeResource   `gorm:"column:resource;serializer:json" json:"resource"` //列名为Resource，序列化成json进行
+	SystemInfo   NodeSystemInfo `gorm:"column:system_info;serializer:json" json:"system_info"`
 }
 
 type NodeResource struct {
@@ -78,13 +78,13 @@ func (n *NodeModel) BeforeDelete(tx *gorm.DB) error {
 
 type NodeNetworkModel struct {
 	Model
-	NodeID    uint      `json:"nodeID"`
-	NodeModel NodeModel `gorm:"foreignKey:NodeID" json:"-"`
-	Network   string    `gorm:"32" json:"network"`
-	IP        string    `gorm:"32" json:"ip"` // 探针ip
-	Mask      int8      `json:"mask"`         // 子网掩码 8-32
-	Gateway   string    `gorm:"32" json:"gateway"`
-	Status    int8      `json:"status"` // 是否启用 1 启用 2 未启用
+	NodeID    uint      `gorm:"column:node_id;" json:"node_id"`
+	NodeModel NodeModel `gorm:"foreignKey:node_id" json:"-"`
+	Network   string    `gorm:"column:network;32" json:"network"`
+	IP        string    `gorm:"column:ip;32" json:"ip"`   // 探针ip
+	Mask      int8      `gorm:"column:mask;" json:"mask"` // 子网掩码 8-32
+	Gateway   string    `gorm:"column:gateway;32" json:"gateway"`
+	Status    int8      `gorm:"column:status;" json:"status"` // 是否启用 1 启用 2 未启用
 }
 
 func (n *NodeNetworkModel) BeforeDelete(tx *gorm.DB) error {
