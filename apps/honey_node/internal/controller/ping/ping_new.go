@@ -5,7 +5,7 @@
 package ping
 
 import (
-	"scaffold/api/ping"
+	"honey_node/api/ping"
 )
 
 type ControllerV1 struct{}

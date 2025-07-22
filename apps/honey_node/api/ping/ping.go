@@ -7,8 +7,8 @@ package ping
 import (
 	"context"
 
-	"scaffold/api/ping/v1"
-	"scaffold/api/ping/v2"
+	"honey_node/api/ping/v1"
+	"honey_node/api/ping/v2"
 )
 
 type IPingV1 interface {

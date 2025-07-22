@@ -5,8 +5,8 @@ import (
 	"github.com/gogf/gf/v2/frame/g"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"scaffold/internal/model"
-	"scaffold/internal/service"
+	"honey_node/internal/model"
+	"honey_node/internal/service"
 	"strings"
 )
 

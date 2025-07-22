@@ -1,4 +1,4 @@
-module scaffold
+module honey_node
 
 go 1.22
 

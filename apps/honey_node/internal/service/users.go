@@ -7,7 +7,7 @@ package service
 
 import (
 	"context"
-	"scaffold/internal/model"
+	"honey_node/internal/model"
 )
 
 type (

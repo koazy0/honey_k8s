@@ -7,11 +7,11 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/buffer"
 	"go.uber.org/zap/zapcore"
+	"honey_node/internal/service"
 	"log"
 	"os"
 	"path"
 	"regexp"
-	"scaffold/internal/service"
 	"time"
 )
 

@@ -1,7 +1,7 @@
 package model
 
 import (
-	"scaffold/internal/model/ctype"
+	"honey_node/internal/model/ctype"
 	"time"
 )
 

@@ -4,11 +4,11 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"scaffold/internal/dao"
-	"scaffold/internal/logic/utils"
-	"scaffold/internal/model"
-	"scaffold/internal/model/do"
-	"scaffold/internal/service"
+	"honey_node/internal/dao"
+	"honey_node/internal/logic/utils"
+	"honey_node/internal/model"
+	"honey_node/internal/model/do"
+	"honey_node/internal/service"
 	"strconv"
 )
 

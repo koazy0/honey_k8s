@@ -4,14 +4,14 @@ import (
 	"flag"
 	_ "github.com/go-sql-driver/mysql"              // 必须匿名导入！  database/sql 驱动
 	_ "github.com/gogf/gf/contrib/drivers/mysql/v2" // GoFrame ORM adapter
-	_ "scaffold/internal/packed"
-	"scaffold/internal/service"
+	_ "honey_node/internal/packed"
+	"honey_node/internal/service"
 
-	_ "scaffold/internal/logic"
+	_ "honey_node/internal/logic"
 
 	"github.com/gogf/gf/v2/os/gctx"
 
-	"scaffold/internal/cmd"
+	"honey_node/internal/cmd"
 )
 
 func main() {

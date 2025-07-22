@@ -5,7 +5,7 @@
 package dao
 
 import (
-	"scaffold/internal/dao/internal"
+	"honey_node/internal/dao/internal"
 )
 
 // userModelsDao is the data access object for the table user_models.

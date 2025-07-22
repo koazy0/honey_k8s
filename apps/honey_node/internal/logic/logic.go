@@ -1,8 +1,8 @@
 package logic
 
 import (
-	_ "scaffold/internal/logic/logs"
-	_ "scaffold/internal/logic/middleware"
-	_ "scaffold/internal/logic/users"
-	_ "scaffold/internal/logic/utils"
+	_ "honey_node/internal/logic/logs"
+	_ "honey_node/internal/logic/middleware"
+	_ "honey_node/internal/logic/users"
+	_ "honey_node/internal/logic/utils"
 )

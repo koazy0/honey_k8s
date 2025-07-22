@@ -5,7 +5,7 @@
 package user
 
 import (
-	"scaffold/api/user"
+	"honey_node/api/user"
 )
 
 type ControllerV1 struct{}

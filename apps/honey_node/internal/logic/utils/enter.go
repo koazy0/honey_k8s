@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"scaffold/internal/service"
+	"honey_node/internal/service"
 )
 
 type (

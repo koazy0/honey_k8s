@@ -1,7 +1,7 @@
 package global
 
 import (
-	"scaffold/internal/service"
+	"honey_node/internal/service"
 )
 
 // todo 在这个包里完成依赖注入

@@ -2,9 +2,9 @@ package cmd
 
 import (
 	"context"
-	"scaffold/internal/controller/ping"
-	"scaffold/internal/controller/user"
-	"scaffold/internal/service"
+	"honey_node/internal/controller/ping"
+	"honey_node/internal/controller/user"
+	"honey_node/internal/service"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
