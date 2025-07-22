@@ -1,0 +1,8 @@
+/logs
+
+# 忽略任意目录下的 testdatas 文件夹
+testdatas/
+logs/
+apps/honey_node/hack
+apps/honey_node/manifest
+apps/honey_node/.idea/
