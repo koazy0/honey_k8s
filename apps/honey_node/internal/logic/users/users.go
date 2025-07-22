@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"go.uber.org/zap"
 	"scaffold/internal/dao"
 	"scaffold/internal/logic/utils"
 	"scaffold/internal/model"
@@ -15,6 +14,10 @@ import (
 
 type (
 	sUser struct{}
+)
+
+var (
+	logger = service.Logs().Cat("users")
 )
 
 func init() {
@@ -35,7 +38,7 @@ func (s *sUser) ValidateUser(ctx context.Context, in model.UserSignIn) (out *mod
 
 	err = dao.UserModels.Ctx(ctx).Where("user_id=?", in.UserID).Scan(&userData)
 	if err != nil {
-		zap.S().Error(err.Error())
+		logger.Error(err.Error())
 		return nil, err
 	}
 	//根据加密后对比
@@ -45,7 +48,7 @@ func (s *sUser) ValidateUser(ctx context.Context, in model.UserSignIn) (out *mod
 	}
 	token, err := service.Jwt().GenerateToken(ctx, in.UserID)
 	if err != nil {
-		zap.S().Error(err.Error())
+		logger.Error(err.Error())
 		return nil, err
 	}
 	out = &model.UserSignInReply{
@@ -61,14 +64,14 @@ func (s *sUser) CreateUser(ctx context.Context, in model.UserSignUp) (out *model
 	count := 1
 	err = dao.UserModels.Ctx(ctx).ScanAndCount(users, &count, false)
 	if err != nil {
-		zap.S().Error(err.Error())
+		logger.Error(err.Error())
 		return nil, err
 	}
 	//根据length来进行uid的生成
 	uid := 100000000 + count + 1
 	salt, err := service.Jwt().GenerateSalt()
 	if err != nil {
-		zap.S().Errorln("生成盐值失败: " + err.Error())
+		logger.Errorln("生成盐值失败: " + err.Error())
 		return nil, errors.New("生成盐值失败")
 	}
 	hashPassword := service.Jwt().HashPassword(in.Password, salt)
@@ -85,23 +88,23 @@ func (s *sUser) CreateUser(ctx context.Context, in model.UserSignUp) (out *model
 	//存入usermodel
 	res, err := dao.UserModels.Ctx(ctx).Insert(userModel)
 	if err != nil {
-		zap.S().Error(err.Error())
+		logger.Error(err.Error())
 		return nil, err
 	}
 	affected, err := res.RowsAffected()
 	if err != nil {
-		zap.S().Error(err.Error())
+		logger.Error(err.Error())
 		return nil, err
 	}
 	if affected == 0 {
 		err = errors.New("affected rows equal 0")
-		zap.S().Error(err.Error())
+		logger.Error(err.Error())
 	}
 	id, err := res.LastInsertId()
 	if err != nil {
-		zap.S().Error(err.Error())
+		logger.Error(err.Error())
 		return nil, err
 	}
-	zap.S().Infof("new user created,userUID:%d, userID:%s, ID:%d", uid, in.UserID, id)
+	logger.Infof("new user created,userUID:%d, userID:%s, ID:%d", uid, in.UserID, id)
 	return
 }

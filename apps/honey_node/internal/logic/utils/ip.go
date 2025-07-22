@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"net"
-	"scaffold/internal/service"
 	"strconv"
 	"strings"
 )
@@ -23,7 +22,7 @@ func IP() *sIP {
 
 func init() {
 
-	service.Logs().Info("Init utils.ip success!")
+	logger.Info("Init utils.ip success!")
 	//service.RegisterIP(IP())
 }
 
@@ -197,7 +196,6 @@ func (s *sIP) FormatIPRange(start, end net.IP) string {
 }
 
 // intToIP 将整数转换为IPv4地址
-// e.g.:192.168.2.1=>
 func intToIP(ipInt uint32) string {
 	return fmt.Sprintf("%d.%d.%d.%d",
 		(ipInt>>24)&0xff,
@@ -210,7 +208,7 @@ func intToIP(ipInt uint32) string {
 func (s *sIP) iPToInt(ipStr string) (ipInt uint32) {
 	ip := net.ParseIP(ipStr).To4()
 	if ip == nil {
-		service.Logs().Errorf("invalid IPv4 address: %q", ipStr)
+		logger.Errorf("invalid IPv4 address: %q", ipStr)
 	}
 	// 按大端（网络字节序）直接转 uint32
 	// 因为这时存到IP这个切片里就是大端序，直接转成uint32就行了

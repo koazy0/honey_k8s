@@ -8,9 +8,13 @@ type (
 	sExample struct{}
 )
 
+var (
+	logger = service.Logs().Cat("utils")
+)
+
 func init() {
 	service.RegisterExample(Example())
-	service.Logs().Info("Init Examples success")
+	logger.Info("Init Examples success")
 }
 
 var insExample = sExample{}

@@ -27,13 +27,13 @@ func (s *sMigrations) Migrate(ctx context.Context) {
 
 	dsnVar, err := g.Cfg().Get(ctx, "database.default.link")
 	if err != nil {
-		service.Logs().Fatal("no dsn configs: " + err.Error())
+		logger.Fatal("no dsn configs: " + err.Error())
 	}
 	dsn := dsnVar.String()
 	dsn = strings.TrimPrefix(dsn, "mysql:")
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		service.Logs().Fatal("database connect error: " + err.Error())
+		logger.Fatal("database connect error: " + err.Error())
 	}
 
 	// 自动迁移
@@ -41,7 +41,7 @@ func (s *sMigrations) Migrate(ctx context.Context) {
 		&model.UserModel{}, // 添加你所有要迁移的表结构
 	)
 	if err != nil {
-		service.Logs().Fatal(err.Error())
+		logger.Fatal(err.Error())
 	}
 
 }

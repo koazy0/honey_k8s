@@ -5,16 +5,14 @@
 
 package service
 
+import (
+	"go.uber.org/zap"
+)
+
 type (
 	ILogs interface {
-		Info(args ...interface{})
-		Infof(template string, args ...interface{})
-		Warn(args ...interface{})
-		Warnf(template string, args ...interface{})
-		Error(args ...interface{})
-		Errorf(template string, args ...interface{})
-		Fatal(args ...interface{})
-		Fatalf(template string, args ...interface{})
+		// Cat 新建一个logger，为每个不同的包创建不同的文件夹是，以便后期维护
+		Cat(cat string) *zap.SugaredLogger
 	}
 )
 

@@ -2,7 +2,7 @@ package utils
 
 import (
 	"context"
-	rand "crypto/rand"
+	"crypto/rand"
 	"crypto/sha256"
 	"encoding/hex"
 	"errors"
@@ -23,10 +23,10 @@ func init() {
 	var err error
 	secret, err := g.Cfg().Get(ctx, "utils.jwt_secret")
 	if err != nil {
-		service.Logs().Fatal(err.Error())
+		logger.Fatal(err.Error())
 	}
 	jwtSecret = secret.Bytes()
-	service.Logs().Info("Init jwts success!")
+	logger.Info("Init jwt success")
 	service.RegisterJwt(Jwt())
 }
 

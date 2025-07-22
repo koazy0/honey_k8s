@@ -24,23 +24,23 @@ type NetModel struct {
 	CanUseHoneyIPRange string    `gorm:"256" json:"canUseHoneyIPRange"` // 能够使用的诱捕ip范围
 }
 
-func (model NetModel) Subnet() string {
+func (model *NetModel) Subnet() string {
 	return fmt.Sprintf("%s/%d", model.IP, model.Mask)
 }
 
-func (model NetModel) InSubnet(ip string) bool {
+func (model *NetModel) InSubnet(ip string) bool {
 	_, _net, _ := net.ParseCIDR(model.Subnet())
 	return _net.Contains(net.ParseIP(ip))
 }
 
-func (model NetModel) IpRange() (ipRange []string, err error) {
+func (model *NetModel) IpRange() (ipRange []string, err error) {
 	//return ip.ParseIPRange(model.CanUseHoneyIPRange)
 	//todo 完成utils表
 	panic("not implement")
 	//return ip.ParseIPRange(model.CanUseHoneyIPRange)
 }
 
-func (model NetModel) BeforeDelete(tx *gorm.DB) error {
+func (model *NetModel) BeforeDelete(tx *gorm.DB) error {
 	// 是否有诱捕ip
 	var count int64
 	tx.Model(HoneyIpModel{}).Where("net_id = ?", model.ID).Count(&count)

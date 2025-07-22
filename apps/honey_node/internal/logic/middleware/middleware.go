@@ -21,6 +21,9 @@ func init() {
 	service.RegisterMiddleware(Middleware())
 }
 
+var (
+	logger = service.Logs().Cat("middleware")
+)
 var insMiddleware = sMiddleware{}
 
 func Middleware() *sMiddleware {
