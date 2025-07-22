@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"honey_node/internal/common"
 	"honey_node/internal/dao"
 	"honey_node/internal/logic/utils"
 	"honey_node/internal/model"
@@ -17,7 +18,7 @@ type (
 )
 
 var (
-	logger = service.Logs().Cat("users")
+	logger = common.Logs().Cat("users")
 )
 
 func init() {

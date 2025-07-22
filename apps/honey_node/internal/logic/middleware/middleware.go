@@ -7,6 +7,7 @@ import (
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gtime"
+	"honey_node/internal/common"
 	"honey_node/internal/service"
 	"net/http"
 	"strconv"
@@ -22,7 +23,7 @@ func init() {
 }
 
 var (
-	logger = service.Logs().Cat("middleware")
+	logger = common.Logs().Cat("middleware")
 )
 var insMiddleware = sMiddleware{}
 

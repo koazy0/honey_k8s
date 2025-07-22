@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"go.uber.org/zap"
 	"gorm.io/gorm"
+	"honey_node/internal/common"
 	"net"
 	"strconv"
 	"strings"
@@ -40,6 +40,8 @@ func (model *NetModel) IpRange() (ipRange []string, err error) {
 	return parseIPRange(model.CanUseHoneyIPRange)
 }
 
+var logger = common.Logs().Cat("model")
+
 func (model *NetModel) BeforeDelete(tx *gorm.DB) error {
 	// 是否有诱捕ip
 	var count int64
@@ -55,7 +57,7 @@ func (model *NetModel) BeforeDelete(tx *gorm.DB) error {
 	}
 	var hostList []HostModel
 	tx.Find(&hostList, "net_id = ?", model.ID).Delete(&hostList)
-	zap.S().Infof("关联删除主机 %d个", len(hostList))
+	logger.Infof("关联删除主机 %d个", len(hostList))
 	// 修改状态
 	tx.Model(&nodeNet).Update("status", 2)
 	return nil

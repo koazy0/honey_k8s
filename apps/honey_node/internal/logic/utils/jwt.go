@@ -9,7 +9,6 @@ import (
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gctx"
 	"github.com/golang-jwt/jwt/v5"
-	_ "honey_node/internal/logic/logs"
 	"honey_node/internal/service"
 	"time"
 )

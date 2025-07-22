@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"honey_node/internal/common"
 	"honey_node/internal/service"
 )
 
@@ -9,7 +10,7 @@ type (
 )
 
 var (
-	logger = service.Logs().Cat("utils")
+	logger = common.Logs().Cat("utils")
 )
 
 func init() {
