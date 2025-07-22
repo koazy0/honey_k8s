@@ -1,6 +1,6 @@
 
 # 忽略任意目录下的 testdatas 文件夹
-**/testdatas/
+**/testdata/
 **/logs/
 **/.idea/
 apps/honey_node/hack
