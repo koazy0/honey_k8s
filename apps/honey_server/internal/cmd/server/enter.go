@@ -1,15 +1,31 @@
-package cmd
+package server
 
 import (
 	"context"
-	"honey_server/internal/controller/ping"
-	"honey_server/internal/controller/user"
-	"honey_server/internal/service"
-
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
+	"github.com/spf13/cobra"
+	"honey_server/internal/common"
+	"honey_server/internal/controller/ping"
+	"honey_server/internal/controller/user"
+	"honey_server/internal/service"
 )
+
+func ServerCommand() *cobra.Command {
+	return serverCmd
+}
+
+var logger = common.Logs().Cat("cmd/server")
+var serverCmd = &cobra.Command{
+	Use:   "server",
+	Short: "deal with server model",
+	Long:  `this is a long description with server command`,
+	Run: func(cmd *cobra.Command, args []string) {
+		// Do Stuff Here
+		logger.Infoln("hello server")
+	},
+}
 
 var (
 	Main = gcmd.Command{
