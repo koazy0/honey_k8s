@@ -11,14 +11,16 @@ import (
 
 type (
 	IMiddleware interface {
-		// MiddlewareHandlerResponse is the default middleware handling handler response object and its error.
-		MiddlewareHandlerResponse(r *ghttp.Request)
-		// CORS allows Cross-origin resource sharing.
-		CORS(r *ghttp.Request)
-		// AccessKeyAuth 通过AK进行认证,后面会进行修改
+		// AccessKeyAuth 通过accesskey进行认证,后面会进行修改
 		AccessKeyAuth(r *ghttp.Request)
 		// JWTAuth 使用 JWT 进行认证
 		JWTAuth(r *ghttp.Request)
+		// MiddleLogger 用于记录谁进行了操作，放在中间件当中
+		MiddleLogger(r *ghttp.Request)
+		// CORS allows Cross-origin resource sharing.
+		CORS(r *ghttp.Request)
+		// MiddlewareHandlerResponse is the default middleware handling handler response object and its error.
+		MiddlewareHandlerResponse(r *ghttp.Request)
 	}
 )
 
