@@ -5,6 +5,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
+	"honey_server/internal/service"
 	"net"
 	"strconv"
 	"strings"
@@ -21,9 +22,8 @@ func IP() *sIP {
 }
 
 func init() {
-
-	logger.Info("Init utils.ip success!")
-	//service.RegisterIP(IP())
+	//logger.Info("Init utils.ip success!")
+	service.RegisterIP(IP())
 }
 
 // HasLocalIPAddr 判断ip是否是本地ip

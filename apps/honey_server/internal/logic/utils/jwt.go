@@ -25,7 +25,7 @@ func init() {
 		logger.Fatal(err.Error())
 	}
 	jwtSecret = secret.Bytes()
-	logger.Info("Init jwt success")
+	//logger.Info("Init jwt success")
 	service.RegisterJwt(Jwt())
 }
 

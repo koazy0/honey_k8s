@@ -15,7 +15,7 @@ var (
 
 func init() {
 	service.RegisterExample(Example())
-	logger.Info("Init Examples success")
+	//logger.Info("Init Examples success")
 }
 
 var insExample = sExample{}
