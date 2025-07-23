@@ -88,7 +88,7 @@ func TestCreateUser_Integration(t *testing.T) {
 		UserID:   "admin",
 		Username: "admin",
 		Password: "152123123",
-	})
+	}, 1)
 	if err != nil {
 		t.Fatalf("CreateUser failed: %v", err)
 	}

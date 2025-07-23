@@ -19,8 +19,8 @@ func ServerCommand() *cobra.Command {
 var logger = common.Logs().Cat("cmd/server")
 var serverCmd = &cobra.Command{
 	Use:   "server",
-	Short: "deal with server model",
-	Long:  `this is a long description with server command`,
+	Short: "run server",
+	Long:  `just run server as normal`,
 	Run: func(cmd *cobra.Command, args []string) {
 		// Do Stuff Here
 		logger.Infoln("hello server")

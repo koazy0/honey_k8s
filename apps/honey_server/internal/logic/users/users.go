@@ -8,6 +8,7 @@ import (
 	"honey_server/internal/dao"
 	"honey_server/internal/logic/utils"
 	"honey_server/internal/model"
+	"honey_server/internal/model/ctype"
 	"honey_server/internal/model/do"
 	"honey_server/internal/service"
 	"strconv"
@@ -58,7 +59,7 @@ func (s *sUser) ValidateUser(ctx context.Context, in model.UserSignIn) (out *mod
 	return out, nil
 }
 
-func (s *sUser) CreateUser(ctx context.Context, in model.UserSignUp) (out *model.UserSignUpReply, err error) {
+func (s *sUser) CreateUser(ctx context.Context, in model.UserSignUp, Role int) (out *model.UserSignUpReply, err error) {
 
 	//查询数据库中有多少个角色
 	users := []do.UserModels{}
@@ -82,7 +83,7 @@ func (s *sUser) CreateUser(ctx context.Context, in model.UserSignUp) (out *model
 		Username: utils.CreatePointer(in.Username),
 		Salt:     utils.CreatePointer(salt),
 		Password: utils.CreatePointer(hashPassword),
-		Role:     2,
+		Role:     ctype.Role(Role),
 		Status:   1,
 	}
 	fmt.Println(userModel)
