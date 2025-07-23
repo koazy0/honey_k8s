@@ -15,9 +15,9 @@ func init() {
 }
 
 var (
-	logger = common.Logs().Cat("middleware")
+	logger        = common.Logs().Cat("middleware")
+	insMiddleware = sMiddleware{}
 )
-var insMiddleware = sMiddleware{}
 
 func Middleware() *sMiddleware {
 	return &insMiddleware
