@@ -9,6 +9,7 @@ import (
 	"github.com/spf13/cobra"
 	"honey_server/internal/common"
 	"honey_server/internal/controller/captcha"
+	"honey_server/internal/controller/honey"
 	"honey_server/internal/controller/host"
 	"honey_server/internal/controller/log"
 	"honey_server/internal/controller/net"
@@ -71,6 +72,7 @@ var (
 						log.NewV1(),
 						net.NewV1(),
 						node.NewV1(),
+						honey.NewV1(),
 					)
 				})
 			})
