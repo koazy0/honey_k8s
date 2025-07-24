@@ -32,3 +32,43 @@ type HoneyPortModel struct {
 	DstPort      int          `gorm:"column:dst_port" json:"dst_port"`     // 目标端口
 	Status       int8         `gorm:"column:status" json:"status"`
 }
+
+// 以下结构体用于路由
+
+type CreateHoneyIP struct {
+}
+
+type CreateHoneyIPResponse struct {
+}
+
+type ListHoneyIP struct {
+	Offset int
+}
+
+type ListHoneyIPResponse struct {
+}
+
+type DeleteHoneyIP struct {
+}
+
+type DeleteHoneyIPResponse struct {
+}
+
+type CreateHoneyPort struct {
+}
+
+type CreateHoneyPortResponse struct {
+}
+
+type ListHoneyPort struct {
+	Offset int
+}
+
+type ListHoneyPortResponse struct {
+}
+
+type DeleteHoneyPort struct {
+}
+
+type DeleteHoneyPortResponse struct {
+}
