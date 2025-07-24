@@ -5,7 +5,6 @@ import (
 	"errors"
 	"fmt"
 	"gorm.io/gorm"
-	"honey_server/internal/common"
 	"net"
 	"strconv"
 	"strings"
@@ -39,8 +38,6 @@ func (model *NetModel) InSubnet(ip string) bool {
 func (model *NetModel) IpRange() (ipRange []string, err error) {
 	return parseIPRange(model.CanUseHoneyIPRange)
 }
-
-var logger = common.Logs().Cat("model")
 
 func (model *NetModel) BeforeDelete(tx *gorm.DB) error {
 	// 是否有诱捕ip
@@ -137,3 +134,44 @@ func parseIPRange(ipRange string) ([]string, error) {
 
 	return result, nil
 }
+
+// 以下结构体用于路由
+type CreateNet struct {
+}
+
+type CreateNetResponse struct{}
+
+type ListNet struct {
+}
+
+type ListNetResponse struct{}
+
+type OptionsNet struct {
+}
+
+type OptionsNetResponse struct{}
+
+type DetailNet struct {
+}
+
+type DetailNetResponse struct{}
+
+type UpdateNet struct {
+}
+
+type UpdateNetResponse struct{}
+
+type ScanNet struct {
+}
+
+type ScanNetResponse struct{}
+
+type UseIPNet struct {
+}
+
+type UseIPNetResponse struct{}
+
+type DeleteNet struct {
+}
+
+type DeleteNetResponse struct{}

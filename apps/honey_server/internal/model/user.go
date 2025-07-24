@@ -18,6 +18,8 @@ type UserModel struct {
 	DeleteAt time.Time        `gorm:"comment:删除时间" json:"-" structs:"-"`
 }
 
+// 以下结构体用于路由
+
 type UserSignIn struct {
 	UserID   string `json:"user_id" v:"required"`
 	Password string `json:"password" v:"required"`

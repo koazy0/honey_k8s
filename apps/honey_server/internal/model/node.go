@@ -47,7 +47,7 @@ func (n *NodeModel) BeforeDelete(tx *gorm.DB) error {
 	if err != nil {
 		return err
 	}
-	zap.S().Infof("关联诱捕转发 %d", len(list))
+	logger.Infof("关联诱捕转发 %d", len(list))
 
 	// 诱捕ip
 	var ipList []HoneyIpModel
@@ -55,7 +55,7 @@ func (n *NodeModel) BeforeDelete(tx *gorm.DB) error {
 	if err != nil {
 		return err
 	}
-	zap.S().Infof("关联诱捕ip %d", len(ipList))
+	logger.Infof("关联诱捕ip %d", len(ipList))
 
 	//节点网络
 	var netList []NetModel
@@ -63,7 +63,7 @@ func (n *NodeModel) BeforeDelete(tx *gorm.DB) error {
 	if err != nil {
 		return err
 	}
-	zap.S().Infof("关联网络 %d", len(netList))
+	logger.Infof("关联网络 %d", len(netList))
 
 	// 节点网卡
 	var networkList []NodeNetworkModel
@@ -71,7 +71,7 @@ func (n *NodeModel) BeforeDelete(tx *gorm.DB) error {
 	if err != nil {
 		return err
 	}
-	zap.S().Infof("关联节点网卡 %d", len(networkList))
+	logger.Infof("关联节点网卡 %d", len(networkList))
 	// 节点
 	return nil
 }
@@ -115,3 +115,25 @@ func (n *NodeNetworkModel) BeforeDelete(tx *gorm.DB) error {
 	zap.S().Infof("关联删除网络 %s", net.Title)
 	return nil
 }
+
+// 以下结构体用于路由
+type ListNode struct{}
+type ListNodeResponse struct{}
+type UpdateNode struct{}
+type UpdateNodeResponse struct{}
+type DetailNode struct{}
+type DetailNodeResponse struct{}
+type DeleteNode struct{}
+type DeleteNodeResponse struct{}
+type OptionsNode struct{}
+type OptionsNodeResponse struct{}
+type ListNetworkNode struct{}
+type ListNetworkNodeResponse struct{}
+type UpdateNetworkNode struct{}
+type UpdateNetworkNodeResponse struct{}
+type FlushNetworkNode struct{}
+type FlushNetworkNodeResponse struct{}
+type EnableNetworkNode struct{}
+type EnableNetworkNodeResponse struct{}
+type DeleteNetworkNode struct{}
+type DeleteNetworkNodeResponse struct{}

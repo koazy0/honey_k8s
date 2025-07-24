@@ -20,3 +20,20 @@ type HostTemplatePort struct {
 	Port      int  `json:"port"`
 	ServiceID uint `json:"serviceID"`
 }
+
+// 以下结构体用于路由
+
+type CreateHost struct {
+}
+
+type CreateHostResponse struct{}
+
+type ListHost struct {
+}
+
+type ListHostResponse struct{}
+
+type DeleteHost struct {
+}
+
+type DeleteHostResponse struct{}

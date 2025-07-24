@@ -2,8 +2,11 @@ package model
 
 import (
 	"gorm.io/gorm"
+	"honey_server/internal/common"
 	"time"
 )
+
+var logger = common.Logs().Cat("model")
 
 type Model struct {
 	ID        uint           `gorm:"primaryKey;comment:id" json:"id,select($any)" structs:"-"` // 主键ID

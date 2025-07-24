@@ -14,3 +14,19 @@ type LogModel struct {
 	Content     string `gorm:"column:content" json:"content"`
 	ServiceName string `gorm:"column:service_name" json:"service_name"`
 }
+
+// 以下结构体用于路由
+type CreateLog struct {
+}
+
+type CreateLogResponse struct{}
+
+type ListLog struct {
+}
+
+type ListLogResponse struct{}
+
+type DeleteLog struct {
+}
+
+type DeleteLogResponse struct{}
