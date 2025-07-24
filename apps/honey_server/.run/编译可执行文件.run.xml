@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="编译可执行文件" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <module name="honey_k8s" />
+    <working_directory value="$PROJECT_DIR$/apps/honey_server" />
+    <go_parameters value="-ldflags &quot;-X 'main.Version=1.0.0' -X 'main.BuildTime=$(date +%Y-%m-%dT%H:%M:%S)' -X 'main.GitCommit=$(git rev-parse --short HEAD)'&quot; -o honey" />
+    <kind value="PACKAGE" />
+    <package value="honey_server" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$/apps/honey_node/main.go" />
+    <option name="run" value="false" />
+    <pty_enabled value="true" />
+    <method v="2" />
+  </configuration>
+</component>
