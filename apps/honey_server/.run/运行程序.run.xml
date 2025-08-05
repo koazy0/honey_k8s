@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="运行程序" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <module name="honey_k8s" />
+    <working_directory value="$PROJECT_DIR$/apps/honey_server" />
+    <go_parameters value="-o honey" />
+    <parameters value="server" />
+    <kind value="PACKAGE" />
+    <package value="honey_server" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$/apps/honey_node/main.go" />
+    <method v="2" />
+  </configuration>
+</component>
