@@ -13,8 +13,6 @@ import (
 	"time"
 )
 
-// 为了确保这个包在其他包初始化前进行初始化，在utils包里面进行了使用service层的方法
-
 var log *zap.Logger
 
 type (
